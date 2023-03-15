@@ -18,7 +18,7 @@ const scene = new THREE.Scene();
  * Textures
  */
 const textureLoader = new THREE.TextureLoader();
-const particleTexture = textureLoader.load("/textures/particles/2.png");
+const particleTexture = textureLoader.load("/textures/particles/10.png");
 
 /**
  * Particles
@@ -50,7 +50,7 @@ const particlesMaterial = new THREE.PointsMaterial({
 });
 // particlesMaterial.size = 0.02;
 // particlesMaterial.sizeAttenuation = true;
-particlesMaterial.color = new THREE.Color("red");
+// particlesMaterial.color = new THREE.Color("red");
 particlesMaterial.transparent = true;
 particlesMaterial.alphaMap = particleTexture;
 // particlesMaterial.alphaTest = 0.001;
@@ -70,7 +70,7 @@ const cube = new THREE.Mesh(
   new THREE.BoxGeometry(1, 1, 1),
   new THREE.MeshBasicMaterial()
 );
-scene.add(cube);
+// scene.add(cube);
 
 /**
  * Sizes
@@ -127,6 +127,20 @@ const clock = new THREE.Clock();
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
+
+  // Update particles
+  // particles.rotation.y = elapsedTime * 0.3;
+
+  for (let i = 0; i < count; i++) {
+    const i3 = i * 3;
+
+    const x = particlesGeometry.attributes.position.array[i3 + 0];
+    particlesGeometry.attributes.position.array[i3 + 1] = Math.sin(
+      elapsedTime + x
+    );
+  }
+
+  particlesGeometry.attributes.position.needsUpdate = true;
 
   // Update controls
   controls.update();
