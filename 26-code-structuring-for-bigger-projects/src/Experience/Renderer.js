@@ -16,15 +16,15 @@ export default class Renderer {
       canvas: this.canvas,
       antialias: true,
     });
-    this.physicallyCorrectLights = true;
-    this.outputEncoding = THREE.sRGBEncoding;
-    this.toneMapping = THREE.CineonToneMapping;
-    this.toneMappingExposure = 1.75;
-    this.shadowMap.enabled = true;
-    this.shadowMap.type = THREE.PCFSoftShadowMap;
-    this.setClearColor("#211d20");
-    this.setSize(this.sizes.width, this.sizes.height);
-    this.setPixelRatio(this.sizes.pixelRatio);
+    this.instance.physicallyCorrectLights = true;
+    this.instance.outputEncoding = THREE.sRGBEncoding;
+    this.instance.toneMapping = THREE.CineonToneMapping;
+    this.instance.toneMappingExposure = 1.75;
+    this.instance.shadowMap.enabled = true;
+    this.instance.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.instance.setClearColor("#211d20");
+    this.instance.setSize(this.sizes.width, this.sizes.height);
+    this.instance.setPixelRatio(this.sizes.pixelRatio);
   }
 
   resize() {
