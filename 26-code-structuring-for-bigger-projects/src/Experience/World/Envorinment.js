@@ -7,6 +7,7 @@ export default class Environment {
     this.scene = this.experience.scene;
 
     this.setSunLight();
+    this.setEnvironmentMap();
   }
   setSunLight() {
     this.sunLight = new THREE.DirectionalLight("#ffffff", 4);
