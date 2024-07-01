@@ -32,7 +32,7 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
   const material2 = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
 
   // Text
-  const textGeometry = new TextGeometry("Summoner's rift Go Go", {
+  const textGeometry = new TextGeometry("124 Silver 동윤", {
     font: font,
     size: 0.5,
     height: 0.2,
